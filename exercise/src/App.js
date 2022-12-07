@@ -1,20 +1,17 @@
 import './App.css';
 import Popup from './components/Popup.js';
-import dog from './images/dog3.jpg'
 import cat from './images/cat.jpg'
-import React, { useState } from 'react';
-
+import React,{ useState } from 'react';
+import DisplayImage from './components/DisplayImage';
 
 function App() {
 
   const[isOpenYes,setIsOpenYes] = useState(false);
-
+  const[isOpenNo,setIsOpenNo] = useState(false);
+  
   const togglePopupYes = () => {
     setIsOpenYes(!isOpenYes);
   }
-
-  const[isOpenNo,setIsOpenNo] = useState(false);
-
   const togglePopupNo = () => {
     setIsOpenNo(!isOpenNo);
   }
@@ -26,8 +23,8 @@ function App() {
         <div class="title">Exercise Identifier</div>
 
         <div class="flexbox-container">
-          <img class="image" src={dog} alt="dog"/>
-          <img class="image" src={cat} alt="cat"/>
+          <DisplayImage/>
+          <div class="image-guess">Push ups</div> 
         </div>
 
         <div class="flexbox-container">
@@ -56,6 +53,7 @@ function App() {
           </div>} 
         />}
 
+
       </div>
     </div>
   );
@@ -63,9 +61,3 @@ function App() {
 
 export default App;
 
-//add popup when we run out of exercises from the dataset
-/*
-<Popup class="button-no" trigger={<button>no</button>} position="right center">
-          <div>Popup 2 content here !!</div>
-        </Popup>
-*/
