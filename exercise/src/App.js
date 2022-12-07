@@ -2,15 +2,21 @@ import './App.css';
 import Popup from './components/Popup.js';
 import dog from './images/dog3.jpg'
 import cat from './images/cat.jpg'
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 
 function App() {
 
-  const[isOpen,setIsOpen] = useState(false);
+  const[isOpenYes,setIsOpenYes] = useState(false);
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
+  const togglePopupYes = () => {
+    setIsOpenYes(!isOpenYes);
+  }
+
+  const[isOpenNo,setIsOpenNo] = useState(false);
+
+  const togglePopupNo = () => {
+    setIsOpenNo(!isOpenNo);
   }
 
   return (
@@ -32,15 +38,21 @@ function App() {
         <div class="text-question">is this the correct exercise?</div>
 
         <div class="flexbox-container">
-          <button onClick={togglePopup} class="button-yes">yes!</button>
-          <button class="button-no">no</button>
+          <button onClick={togglePopupYes} class="button-yes">yes!</button>
+          <button onClick={togglePopupNo}class="button-no">no</button>
         </div>
 
-        {isOpen && <Popup 
-          handleClose={() => {}} 
+        {isOpenYes && <Popup 
+          handleClose={togglePopupYes} 
+          content = {<div>
+            <h1>Please upload a new image</h1>
+          </div>} 
+        />}
+
+        {isOpenNo && <Popup 
+          handleClose={togglePopupNo} 
           content = {<div>
             <h1>We do not have the given exercise in our dataset</h1>
-            <h1>Please upload a new image</h1>
           </div>} 
         />}
 
