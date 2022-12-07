@@ -2,14 +2,44 @@
   text-align: center;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
-  gap: 50px 50px;
-}
-
-.grid-item {
+.title {
+  position: static;
   padding: 20px;
+  font-size: 100px;
   text-align: center;
 }
+
+.image {
+  max-height: 400px;
+  max-width: 300px;
+}
+
+.flexbox-container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-text {
+  padding: 20px;
+  font-size: 30px;
+}
+
+.text-question {
+  position: static;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.button-yes {
+  font-size: 25px;
+  background-color: green;
+}
+
+.button-no {
+  font-size: 25px;
+  background-color: red;
+}
+
+
