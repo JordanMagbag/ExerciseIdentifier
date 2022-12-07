@@ -1,6 +1,5 @@
 import './App.css';
 import Popup from './components/Popup.js';
-import cat from './images/cat.jpg'
 import React,{ useState } from 'react';
 import DisplayImage from './components/DisplayImage';
 
