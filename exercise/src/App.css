@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  gap: 50px 50px;
+}
+
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
