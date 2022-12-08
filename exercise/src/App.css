@@ -7,6 +7,7 @@
   padding: 20px;
   font-size: 100px;
   text-align: center;
+  color: blueviolet;
 }
 
 .image {
@@ -23,16 +24,23 @@
   justify-content: center;
 }
 
-.image-text {
-  padding: 20px;
-  font-size: 30px;
-}
-
 .text-question {
+  color: rgb(235, 135, 20);
   position: static;
   padding: 20px;
   font-size: 30px;
   text-align: center;
+}
+
+.image-text-upload{
+  color: rgb(43, 153, 226);
+  padding: 60px;
+  font-size: 30px;
+}
+.image-text-exercise{
+  color: rgb(116, 226, 43);
+  padding: 60px;
+  font-size: 30px;
 }
 
 .button-yes {

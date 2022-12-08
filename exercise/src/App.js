@@ -35,8 +35,8 @@ function App() {
         </div>
 
         <div class="flexbox-container">
-          <div class="image-text">Uploaded Image</div>
-          <div class="image-text">Exercise Guess</div>
+          <div class="image-text-upload">Uploaded Image</div>
+          <div class="image-text-exercise">Exercise Guess</div>
         </div>
 
         {guesses.length > 0 &&
@@ -52,17 +52,16 @@ function App() {
         {isOpenYes && <Popup
           handleClose={togglePopupYes}
           content={<div>
-            <h1>Please upload a new image</h1>
+            <h1>Yay, we got it right! Please upload a new image</h1>
           </div>}
         />}
 
         {isOpenNo && <Popup
           handleClose={togglePopupNo}
           content={<div>
-            <h1>We do not have the given exercise in our dataset</h1>
+            <h1>We could not identify the exercise in your image, please try a new image.</h1>
           </div>}
         />}
-
 
       </div>
     </div>
