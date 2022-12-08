@@ -1,0 +1,6 @@
+Flask==2.2.2
+mediapipe==0.9.0.1
+numpy==1.23.4
+opencv-contrib-python==4.6.0.66
+opencv-python==4.6.0.66
+scikit-learn==1.1.3

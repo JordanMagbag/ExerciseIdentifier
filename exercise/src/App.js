@@ -1,18 +1,26 @@
 import './App.css';
 import Popup from './components/Popup.js';
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import DisplayImage from './components/DisplayImage';
 
 function App() {
 
-  const[isOpenYes,setIsOpenYes] = useState(false);
-  const[isOpenNo,setIsOpenNo] = useState(false);
-  
+  const [isOpenYes, setIsOpenYes] = useState(false);
+  const [isOpenNo, setIsOpenNo] = useState(false);
+  const [guesses, setGuesses] = useState([]);
+
   const togglePopupYes = () => {
     setIsOpenYes(!isOpenYes);
   }
   const togglePopupNo = () => {
-    setIsOpenNo(!isOpenNo);
+    if (guesses.length > 1) {
+      // Get the next guess
+      let newArr = [...guesses];
+      newArr.shift();
+      setGuesses(newArr);
+    } else {
+      setIsOpenNo(!isOpenNo);
+    }
   }
 
   return (
@@ -22,8 +30,8 @@ function App() {
         <div class="title">Exercise Identifier</div>
 
         <div class="flexbox-container">
-          <DisplayImage/>
-          <div class="image-guess">Push ups</div> 
+          <DisplayImage setGuesses={setGuesses} setIsOpenNo={setIsOpenNo} />
+          <div class="image-guess">{guesses[0]}</div>
         </div>
 
         <div class="flexbox-container">
@@ -31,25 +39,28 @@ function App() {
           <div class="image-text">Exercise Guess</div>
         </div>
 
-        <div class="text-question">is this the correct exercise?</div>
+        {guesses.length > 0 &&
+          <div>
+            <div class="text-question">is this the correct exercise?</div>
 
-        <div class="flexbox-container">
-          <button onClick={togglePopupYes} class="button-yes">yes!</button>
-          <button onClick={togglePopupNo}class="button-no">no</button>
-        </div>
+            <div class="flexbox-container">
+              <button onClick={togglePopupYes} class="button-yes">yes!</button>
+              <button onClick={togglePopupNo} class="button-no">no</button>
+            </div>
+          </div>}
 
-        {isOpenYes && <Popup 
-          handleClose={togglePopupYes} 
-          content = {<div>
+        {isOpenYes && <Popup
+          handleClose={togglePopupYes}
+          content={<div>
             <h1>Please upload a new image</h1>
-          </div>} 
+          </div>}
         />}
 
-        {isOpenNo && <Popup 
-          handleClose={togglePopupNo} 
-          content = {<div>
+        {isOpenNo && <Popup
+          handleClose={togglePopupNo}
+          content={<div>
             <h1>We do not have the given exercise in our dataset</h1>
-          </div>} 
+          </div>}
         />}
 
 
